@@ -1,0 +1,755 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Свидание за гончарным кругом в Казани — Wow Ceramics</title>
+<meta name="description" content="Свидание за гончарным кругом в Казани: два часа вдвоём, две глиняные чашки и вечер, который останется на полке. Студия Wow Ceramics, ул. Маяковского, 20.">
+<meta property="og:title" content="Свидание за гончарным кругом — Wow Ceramics">
+<meta property="og:description" content="Два часа вдвоём за гончарным кругом: глина, свечи, музыка и два изделия, сделанные вместе.">
+<meta property="og:image" content="../assets/photos/hero.jpg">
+<link rel="stylesheet" href="../assets/common.css">
+<style>
+  :root {
+    --cream: #fff3e3;
+    --cream-2: #ffe9d2;
+    --ink: #23201d;
+    --terra: #e2704f;
+    --terra-dark: #c4593b;
+    --cobalt: #2c4b9b;
+    --sage: #a9bf9c;
+    --sage-light: #eaf1e2;
+    --yellow: #f6c95c;
+    --white: #fffaf2;
+    --muted: #6a6055;
+    --display: 'Montserrat', 'Segoe UI', sans-serif;
+  }
+  body { background: var(--cream); color: var(--ink); font-size: 16.5px; }
+  .card { background: var(--white); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--ink); }
+  .micro { font-family: 'Consolas', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); font-size: 12.5px; font-weight: 600; }
+
+  /* шапка */
+  .top { padding: 18px 0; position: sticky; top: 0; z-index: 50; background: linear-gradient(var(--cream) 72%, rgba(255,243,227,0)); }
+  .top__bar { display: flex; align-items: center; gap: 18px; padding: 9px 10px 9px 20px; background: var(--white); border: 2px solid var(--ink); border-radius: 999px; box-shadow: 5px 5px 0 var(--ink); }
+  .brand { display: flex; align-items: center; gap: 9px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 18px; letter-spacing: -.02em; color: var(--ink); }
+  .brand em { font-style: normal; color: var(--terra); }
+  .brand__dot { width: 24px; height: 24px; border-radius: 50%; background: var(--terra); border: 2px solid var(--ink); display: grid; place-items: center; font-size: 11px; color: #fff; font-family: var(--display); }
+  .back { font-size: 13px; text-decoration: none; color: var(--muted); white-space: nowrap; }
+  .back:hover { color: var(--terra); }
+  .top__right { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+  .phone { font-size: 13.5px; text-decoration: none; color: var(--ink); white-space: nowrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; background: var(--ink); color: var(--cream); border: 2px solid var(--ink); border-radius: 999px; padding: 14px 24px; font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: -.01em; text-decoration: none; cursor: pointer; box-shadow: 4px 4px 0 rgba(35,32,29,.22); transition: transform .15s ease, background .15s ease, box-shadow .15s ease; }
+  .btn:hover { background: var(--terra); box-shadow: 2px 2px 0 rgba(35,32,29,.22); transform: translate(2px,2px); }
+  .btn--terra { background: var(--terra); color: #fff; }
+  .btn--terra:hover { background: var(--ink); }
+  .btn--sm { padding: 10px 18px; font-size: 13px; }
+  .btn--ghost { background: var(--white); color: var(--ink); }
+  .btn--ghost:hover { background: var(--yellow); }
+
+  /* герой */
+  .hero { padding: 18px 0 8px; }
+  .crumbs { display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--terra); }
+  .hero__grid { display: grid; grid-template-columns: 1.03fr .97fr; gap: 22px; align-items: stretch; }
+  .hero__text { padding: 38px 38px 34px; position: relative; overflow: hidden; }
+  .hero__text::after { content: ''; position: absolute; right: -70px; bottom: -110px; width: 240px; height: 240px; border-radius: 50%; background: var(--yellow); opacity: .32; }
+  h1 { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 3.7vw, 54px); line-height: 1.01; letter-spacing: -.035em; margin: 16px 0 0; position: relative; z-index: 1; }
+  h1 span { color: var(--terra); }
+  .hero__lead { margin-top: 18px; max-width: 47ch; font-size: 16px; line-height: 1.6; color: #4b453e; position: relative; z-index: 1; }
+  .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; position: relative; z-index: 1; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; position: relative; z-index: 1; }
+  .hero__note { margin-top: 18px; font-size: 12.5px; color: var(--muted); position: relative; z-index: 1; }
+  .hero__media { position: relative; border: 2px solid var(--ink); border-radius: 26px; overflow: hidden; min-height: 500px; background: #d7b79a; box-shadow: 7px 7px 0 var(--ink); }
+  .hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 32%; display: block; }
+  .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(226,112,79,.18), transparent 40%, rgba(35,32,29,.42)); pointer-events: none; }
+  .hero__price { position: absolute; z-index: 2; left: 14px; right: 14px; bottom: 14px; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 16px; border: 2px solid var(--ink); border-radius: 16px; background: var(--white); }
+  .hero__price b { font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: -.02em; }
+  .hero__price span { font-size: 11.5px; color: var(--muted); display: block; }
+  .hero__price .price { font-family: var(--display); font-weight: 800; font-size: 17px; color: var(--terra); white-space: nowrap; }
+  .sticker { position: absolute; z-index: 3; font-family: var(--display); font-weight: 800; letter-spacing: -.01em; }
+  .sticker--1 { top: 16px; left: 16px; background: var(--white); color: var(--ink); border: 2px solid var(--ink); border-radius: 14px; padding: 9px 13px; font-size: 13px; transform: rotate(-4deg); box-shadow: 3px 3px 0 var(--ink); }
+  .sticker--2 { top: 90px; right: 14px; background: var(--cobalt); color: #fff; border-radius: 50%; width: 82px; height: 82px; display: grid; place-items: center; text-align: center; font-size: 10px; line-height: 1.25; transform: rotate(7deg); border: 2px solid var(--ink); }
+
+  /* ключевые факты */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+  .fact { padding: 16px 18px; }
+  .fact b { display: block; font-family: var(--display); font-weight: 800; font-size: 19px; letter-spacing: -.02em; }
+  .fact span { font-size: 12.5px; color: var(--muted); }
+
+  /* приватность */
+  .privacy { display: flex; gap: 16px; align-items: center; margin-top: 14px; padding: 18px 22px; background: var(--cream-2); }
+  .privacy__ic { flex: 0 0 auto; width: 46px; height: 46px; border-radius: 14px; border: 2px solid var(--ink); background: var(--white); display: grid; place-items: center; }
+  .privacy b { font-family: var(--display); font-weight: 800; font-size: 16.5px; letter-spacing: -.02em; }
+  .privacy p { margin: 4px 0 0; font-size: 13.5px; line-height: 1.5; color: #4b453e; }
+
+  /* секции */
+  section { padding: 62px 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 28px; }
+  .sec-label { display: inline-flex; align-items: center; gap: 8px; color: var(--terra); }
+  h2 { font-family: var(--display); font-weight: 800; font-size: clamp(27px, 3vw, 40px); line-height: 1.03; letter-spacing: -.03em; margin: 10px 0 0; }
+  h2 span { color: var(--terra); }
+  .sec-head p { max-width: 42ch; font-size: 15px; color: var(--muted); margin: 0; }
+
+  /* сравнение */
+  .versus { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+  .vs { padding: 26px 28px; }
+  .vs--muted { background: #f3ece1; box-shadow: none; border-color: #b9ab98; }
+  .vs__title { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .vs__title h3 { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -.02em; margin: 0; }
+  .vs--muted .vs__title h3 { color: #6f6353; }
+  .vs__tag { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 2px solid currentColor; }
+  .vs--win .vs__tag { color: var(--terra); }
+  .vs--muted .vs__tag { color: #8c7f6c; }
+  .vs ul { margin: 18px 0 0; display: grid; gap: 12px; }
+  .vs li { display: flex; gap: 10px; font-size: 14.5px; line-height: 1.5; color: #4b453e; }
+  .vs li::before { content: ''; flex: 0 0 auto; width: 18px; height: 18px; border-radius: 50%; border: 2px solid currentColor; margin-top: 2px; }
+  .vs--win li::before { background: var(--sage-light); border-color: #6f8a63; }
+  .vs--muted li::before { border-color: #b3a690; }
+  .vs__sum { margin-top: 22px; padding-top: 16px; border-top: 2px dashed rgba(35,32,29,.2); font-size: 13.5px; color: var(--muted); }
+
+  /* кому подойдёт */
+  .who { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .who__card { padding: 22px 20px; }
+  .who__card h3 { font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: -.02em; margin: 0 0 8px; }
+  .who__card p { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0; }
+  .who__ic { width: 42px; height: 42px; border-radius: 13px; border: 2px solid var(--ink); display: grid; place-items: center; margin-bottom: 14px; }
+
+  /* таймлайн */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .step { padding: 22px 22px 20px; position: relative; }
+  .step__time { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--ink); color: var(--cream); font-family: 'Consolas', monospace; font-size: 10.5px; letter-spacing: .08em; }
+  .step h3 { font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: -.02em; margin: 14px 0 8px; }
+  .step p { font-size: 13.5px; line-height: 1.5; color: var(--muted); margin: 0; }
+  .steps__note { margin-top: 18px; font-size: 12.5px; color: var(--muted); max-width: 70ch; }
+
+  /* что входит */
+  .includes { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: stretch; }
+  .inc { padding: 28px 30px; }
+  .inc h3, .add h3 { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -.02em; margin: 0 0 16px; }
+  .inc ul { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+  .inc li { display: flex; gap: 10px; font-size: 14px; line-height: 1.45; color: #4b453e; }
+  .inc li svg { flex: 0 0 auto; margin-top: 2px; }
+  .add { background: var(--sage-light); padding: 28px 30px; }
+  .add ul { display: grid; gap: 10px; }
+  .add li { font-size: 14px; line-height: 1.45; color: #3f4a37; display: flex; gap: 10px; }
+  .add li::before { content: '+'; font-family: var(--display); font-weight: 800; color: #5d7a4f; }
+  .add p { margin-top: 16px; font-size: 12.5px; color: #5d6b52; }
+
+  /* что создадите */
+  .make { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+  .make__text { padding: 30px 32px; }
+  .make__text h2 { font-size: clamp(26px, 2.6vw, 34px); }
+  .make__text p { margin-top: 14px; font-size: 15px; line-height: 1.6; color: #4b453e; max-width: 44ch; }
+  .make__chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .make__pics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .make__pics figure { margin: 0; border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; background: var(--white); box-shadow: 5px 5px 0 var(--ink); }
+  .make__pics img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  .make__pics figcaption { padding: 8px 12px; border-top: 2px solid var(--ink); font-size: 11px; color: var(--muted); }
+
+  /* галерея */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border: 2px solid var(--ink); border-radius: 20px; box-shadow: 4px 4px 0 var(--ink); display: block; }
+
+  /* цена */
+  .price-card { background: var(--cobalt); color: #f6f1e4; border-radius: 30px; border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--ink); padding: 38px 40px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 32px; align-items: center; position: relative; overflow: hidden; }
+  .price-card::before { content: ''; position: absolute; right: -70px; top: -90px; width: 260px; height: 260px; border-radius: 50%; background: rgba(255,255,255,.08); }
+  .price-card h2 { color: #fff; }
+  .price-card .big { font-family: var(--display); font-weight: 800; font-size: clamp(34px, 4vw, 52px); letter-spacing: -.03em; color: var(--yellow); line-height: 1; margin-top: 18px; }
+  .price-card p { margin-top: 14px; color: rgba(246,241,228,.85); font-size: 14.5px; max-width: 46ch; }
+  .price-card ul { margin-top: 18px; display: grid; gap: 8px; }
+  .price-card li { font-size: 13.5px; color: rgba(246,241,228,.9); display: flex; gap: 9px; }
+  .price-card li::before { content: '·'; color: var(--yellow); }
+  .price-card__side { display: grid; gap: 10px; justify-items: stretch; }
+  .price-card .btn { background: var(--yellow); color: var(--ink); }
+  .price-card .btn:hover { background: #fff; }
+  .price-card .btn--ghost { background: transparent; color: #f6f1e4; box-shadow: inset 0 0 0 2px rgba(246,241,228,.6); }
+  .price-card .btn--ghost:hover { background: #f6f1e4; color: var(--ink); }
+
+  /* faq */
+  .faq { display: grid; gap: 10px; }
+  details { border: 2px solid var(--ink); border-radius: 18px; background: var(--white); padding: 18px 20px; }
+  details[open] { box-shadow: 4px 4px 0 var(--ink); }
+  summary { cursor: pointer; font-family: var(--display); font-weight: 700; font-size: 15.5px; letter-spacing: -.01em; list-style: none; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-size: 20px; color: var(--terra); line-height: 1; }
+  details[open] summary::after { content: '–'; }
+  details p { margin: 12px 0 0; font-size: 14px; line-height: 1.6; color: var(--muted); }
+
+  /* форма */
+  .booking { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: start; }
+  .booking__aside h2 { margin-top: 10px; }
+  .booking__aside p { margin-top: 14px; color: var(--muted); font-size: 15px; max-width: 40ch; }
+  .booking__contacts { margin-top: 22px; display: grid; gap: 12px; font-size: 15px; }
+  .booking__contacts a { color: var(--ink); text-decoration: none; font-weight: 600; border-bottom: 2px solid var(--yellow); }
+  .booking__contacts .micro { color: var(--muted); }
+  .form-card { padding: 28px 30px 26px; }
+  .form-card h3 { font-family: var(--display); font-weight: 800; font-size: 21px; margin: 0 0 6px; letter-spacing: -.02em; }
+  .form-card > p { font-size: 13.5px; color: var(--muted); margin: 0 0 18px; }
+  .field { margin-bottom: 13px; }
+  .field label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .02em; margin-bottom: 6px; color: #4b453e; }
+  .field input { width: 100%; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 14px; background: #fffdf8; font: inherit; font-size: 15px; color: var(--ink); outline: none; }
+  .field input:focus { background: #fff; box-shadow: 0 0 0 4px rgba(246,201,92,.55); }
+  .consent { display: flex; gap: 10px; align-items: flex-start; margin: 15px 0 16px; font-size: 12px; color: var(--muted); line-height: 1.45; }
+  .consent input { margin-top: 2px; width: 16px; height: 16px; accent-color: var(--terra); }
+  .form__submit { width: 100%; }
+  .form__hint { margin-top: 11px; font-size: 11.5px; color: var(--muted); text-align: center; }
+  .form__msg { display: none; margin-top: 13px; padding: 11px 13px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+  .form__msg.is-visible { display: block; }
+  .form__msg--ok { background: var(--sage-light); border: 2px solid #6f8a63; }
+  .form__msg--err { background: #ffe3d9; border: 2px solid var(--terra-dark); }
+  .field.has-error input { border-color: var(--terra-dark); background: #fff1eb; }
+
+  /* другие форматы */
+  .others { display: flex; flex-wrap: wrap; gap: 10px; }
+  .others a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); font-size: 13px; font-weight: 600; text-decoration: none; color: var(--ink); }
+  .others a:hover { background: var(--yellow); }
+  .others a[aria-current] { background: var(--terra); color: #fff; }
+
+  /* подвал */
+  footer { margin-top: 20px; border-top: 2px solid var(--ink); background: var(--cream-2); padding: 40px 0 22px; }
+  .foot__grid { display: grid; grid-template-columns: 1.4fr .8fr .9fr .9fr; gap: 28px; }
+  .foot__brand { font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: -.02em; }
+  .foot__brand em { font-style: normal; color: var(--terra); }
+  .foot__brand p { font-family: 'Inter', sans-serif; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 9px; max-width: 30ch; line-height: 1.6; }
+  footer h5 { font-family: 'Consolas', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #7c7266; margin: 0 0 10px; font-weight: 400; }
+  footer address { font-style: normal; font-size: 13px; line-height: 1.7; color: #3d3833; }
+  footer a { color: #3d3833; text-decoration: none; }
+  footer a:hover { color: var(--terra); }
+  .foot__bottom { display: flex; justify-content: space-between; gap: 20px; margin-top: 30px; padding-top: 15px; border-top: 2px dashed rgba(35,32,29,.22); font-size: 11.5px; color: var(--muted); }
+
+  .mobile-cta { display: none; }
+  @media (max-width: 1100px) {
+    .phone { display: none; }
+    .hero__grid, .includes, .make, .booking, .price-card { grid-template-columns: 1fr; }
+    .hero__media { min-height: 420px; }
+    .facts, .who, .steps { grid-template-columns: repeat(2, 1fr); }
+    .inc ul { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .versus { grid-template-columns: 1fr; }
+    .foot__grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 700px) {
+    body { padding-bottom: 74px; }
+    .top { padding: 12px 0; }
+    .top__bar { gap: 8px; padding: 7px 7px 7px 12px; }
+    .brand { font-size: 15px; gap: 6px; }
+    .brand__dot { width: 20px; height: 20px; font-size: 10px; }
+    .top__bar .btn { padding: 9px 12px; font-size: 11.5px; }
+    .back { display: none; }
+    .top__right { gap: 10px; }
+    .hero__text { padding: 26px 22px 24px; }
+    h1 { font-size: clamp(31px, 9.4vw, 40px); }
+    .hero__media { min-height: 360px; }
+    .facts, .who, .steps, .gallery, .make__pics { grid-template-columns: 1fr; }
+    .inc, .add, .make__text, .form-card, .price-card { padding: 24px 22px; }
+    section { padding: 44px 0; }
+    .sec-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .mobile-cta { display: block; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; }
+    .mobile-cta .btn { width: 100%; box-shadow: 0 10px 24px rgba(35,32,29,.28); }
+  }
+</style>
+</head>
+<body>
+<script src="../assets/sprite.js"></script>
+<div class="grain"></div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top__bar">
+      <a class="back" href="../index.html">← Все форматы</a>
+      <a class="brand" href="../index.html"><span class="brand__dot">w</span>wow<em>.</em>ceramics</a>
+      <div class="top__right">
+        <a class="phone" href="tel:+79872314164">+7 987 231‑41‑64</a>
+        <button class="btn btn--terra btn--sm" type="button" data-book>Записаться</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Хлебные крошки">
+        <a href="../index.html">Главная</a><span>·</span><a href="../index.html#formats">Форматы</a><span>·</span><span>Свидание за гончарным кругом</span>
+      </nav>
+
+      <div class="hero__grid">
+        <div class="hero__text card">
+          <span class="chip">только для двоих</span>
+          <h1>Свидание<br>за гончарным<br><span>кругом</span></h1>
+          <p class="hero__lead">Два часа вдвоём: глина, свечи, музыка и два изделия, которые вы сделаете
+            вместе. Без опыта и без «правильно» — мастер рядом, телефоны в стороне.</p>
+          <div class="hero__badges">
+            <span class="chip">2 часа</span>
+            <span class="chip">только вы двое</span>
+            <span class="chip">2 изделия</span>
+            <span class="chip">Маяковского, 20</span>
+          </div>
+          <div class="hero__actions">
+            <button class="btn btn--terra" type="button" data-book>Занять вечер</button>
+            <a class="btn btn--ghost" href="#includes">Что входит</a>
+          </div>
+          <p class="hero__note">Свободные даты подтверждаем в WhatsApp. Оплата — в студии, на сайте её нет.</p>
+        </div>
+
+        <div class="hero__media">
+          <img src="../assets/photos/hero.jpg" alt="Мастер студии Wow Ceramics показывает, как работать с глиной">
+          <span class="sticker sticker--1">для двоих и не только</span>
+          <span class="sticker sticker--2">вайб<br>тёплый</span>
+          <div class="hero__price">
+            <div><b>Свидание за кругом</b><span>глина, обжиг и вино включены</span></div>
+            <div class="price">по запросу</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="facts">
+        <div class="fact card"><b>2 часа</b><span>длина вечера</span></div>
+        <div class="fact card"><b>2 человека</b><span>только ваша пара</span></div>
+        <div class="fact card"><b>2 изделия</b><span>каждый делает своё</span></div>
+        <div class="fact card"><b>0 опыта</b><span>нужно с собой</span></div>
+      </div>
+
+      <div class="privacy card">
+        <span class="privacy__ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="11" rx="3" stroke="#23201d" stroke-width="1.9"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10" stroke="#23201d" stroke-width="1.9"/><circle cx="12" cy="15.5" r="1.6" fill="#23201d"/></svg>
+        </span>
+        <div>
+          <b>В мастерской будете только вы</b>
+          <p>Во время свидания в студии нет других гостей и параллельных мастер-классов: только вы, мастер и два круга.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="versus" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">почему не ресторан</span>
+          <h2>Ужин или <span>вечер с глиной</span></h2>
+        </div>
+        <p>Обычно на свидании вы сидите напротив друг друга. Здесь — рядом,
+          за двумя кругами, и уходите с вещью, которую сделали вместе.</p>
+      </div>
+      <div class="versus">
+        <div class="vs card vs--muted">
+          <div class="vs__title"><h3>Ужин в ресторане</h3><span class="vs__tag">привычно</span></div>
+          <ul>
+            <li>Сидите и разговариваете — паузы приходится заполнять</li>
+            <li>Общего результата, кроме счёта, почти нет</li>
+            <li>Телефоны лежат на столе и отвлекают</li>
+            <li>Воспоминание остаётся, а предмета «на память» — нет</li>
+          </ul>
+          <p class="vs__sum">Хорошо, но так было уже много раз.</p>
+        </div>
+        <div class="vs card vs--win">
+          <div class="vs__title"><h3>Вечер за гончарным кругом</h3><span class="vs__tag">запоминается</span></div>
+          <ul>
+            <li>Руки заняты, разговор возникает сам</li>
+            <li>Есть общий результат — два изделия, сделанные вместе</li>
+            <li>Телефоны уходят на второй план</li>
+            <li>Остаётся материальная память, которой пользуются дома</li>
+          </ul>
+          <p class="vs__sum">Плюс свечи, музыка и чай — атмосферу собираем мы.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="who" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">кому подойдёт</span>
+          <h2>Четыре повода<br><span>прийти вдвоём</span></h2>
+        </div>
+        <p>Формат одинаковый, смысл — ваш. Скажите, если нужен особый
+          повод: подготовим стол и музыку.</p>
+      </div>
+      <div class="who">
+        <div class="who__card card">
+          <span class="who__ic" style="background:var(--yellow)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.2-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.8-7 9-7 9z" stroke="#23201d" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <h3>Первое свидание</h3>
+          <p>Неловких пауз меньше: есть сценарий, мастер подсказывает шаги, разговор идёт сам.</p>
+        </div>
+        <div class="who__card card">
+          <span class="who__ic" style="background:var(--sage)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.4 5.4 5.6.7-4.2 4 1.1 5.7L12 16l-4.9 2.8 1.1-5.7-4.2-4 5.6-.7z" stroke="#23201d" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <h3>Годовщина</h3>
+          <p>Повод снова побыть вдвоём — и унести домой вещь с датой, выцарапанной на дне.</p>
+        </div>
+        <div class="who__card card">
+          <span class="who__ic" style="background:#ffd9b8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7-4.2-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.8-7 9-7 9z" stroke="#23201d" stroke-width="1.8"/><path d="M9 8.5h6" stroke="#23201d" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <h3>Предложение</h3>
+          <p>Спокойный вечер без публики. Кольцо можно спрятать в глину — мы поможем с моментом.</p>
+        </div>
+        <div class="who__card card">
+          <span class="who__ic" style="background:#e7e0f2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9h16v11H4z" stroke="#23201d" stroke-width="1.8"/><path d="M2.5 9h19v4h-19zM12 9v11M12 9c-3 0-5-1.4-5-3.4S8.4 3 10 4c1.3.8 2 2.7 2 5zM12 9c3 0 5-1.4 5-3.4S15.6 3 14 4c-1.3.8-2 2.7-2 5z" stroke="#23201d" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <h3>Подарок-сюрприз</h3>
+          <p>Приходите «просто погулять» — и оказываетесь за кругом. Или сразу берите сертификат.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">как проходит</span>
+          <h2>Два часа —<br><span>четыре спокойных шага</span></h2>
+        </div>
+        <p>Ничего не нужно приносить и уметь. Фартук, глина, инструменты
+          и чай уже в студии.</p>
+      </div>
+      <div class="steps">
+        <div class="step card">
+          <span class="step__time">0–10 мин</span>
+          <h3>Знакомство</h3>
+          <p>Показываем студию, объясняем, как работает круг, завязываем фартуки.</p>
+        </div>
+        <div class="step card">
+          <span class="step__time">10–50 мин</span>
+          <h3>Круг</h3>
+          <p>Каждый за своим кругом: центруем глину, поднимаем стенку, делаем форму. Мастер ведёт руки.</p>
+        </div>
+        <div class="step card">
+          <span class="step__time">50–90 мин</span>
+          <h3>Лепка и декор</h3>
+          <p>Ручки, текстура, надпись или дата на дне. Выбираете глазурь — обожжём и покроем сами.</p>
+        </div>
+        <div class="step card">
+          <span class="step__time">30–40 мин</span>
+          <h3>Фото и чай</h3>
+          <p>Делаем фотографии с изделиями, пьём чай. Работы остаются на обжиг.</p>
+        </div>
+      </div>
+      <p class="steps__note">Время этапов примерное — подстроим под ваш вечер. Изделия нельзя забрать
+        сразу: они сохнут и проходят обжиг. Готовые работы ждут вас в студии через 2–3 недели,
+        мы напишем, когда приезжать.</p>
+    </div>
+  </section>
+
+  <section id="includes" style="padding-top:0">
+    <div class="wrap includes">
+      <div class="inc card">
+        <h3>Что входит в вечер</h3>
+        <ul>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>2 часа в студии, только ваша пара</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>два гончарных круга и стол для лепки</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>глина, инструменты и фартуки</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>глазурь и два обжига ваших изделий</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>мастер рядом всё время</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>музыка, свечи и тёплый свет</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>вино и бокалы</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>чай и сладкое к столу</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="#6f8a63" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>фотографии вечера на ваш телефон</li>
+        </ul>
+      </div>
+      <div class="add card">
+        <h3>Можно добавить</h3>
+        <ul>
+          <li>профессионального фотографа — за отдельную плату</li>
+          <li>второе изделие для каждого</li>
+          <li>продолжение вечера — подскажем места рядом</li>
+        </ul>
+        <p>Свои напитки и еду можно приносить с собой — предупредите заранее,
+          чтобы мы освободили место на столе.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="make" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">что вы сделаете</span>
+          <h2>Два изделия<br><span>за одно свидание</span></h2>
+        </div>
+        <p>Каждый работает за своим кругом и уходит со своим изделием.
+          Форму выбираете на месте.</p>
+      </div>
+      <div class="make">
+        <div class="make__text card">
+          <h2>Чашки, пиалы<br>или маленькая ваза</h2>
+          <p>Чаще всего на свидании получаются две кружки — их удобно использовать
+            дома и легко узнать в шкафу. Можно сделать пиалы, подсвечники или
+            небольшую вазу — как захочется.</p>
+          <div class="make__chips">
+            <span class="chip">кружка</span>
+            <span class="chip">пиала</span>
+            <span class="chip">подсвечник</span>
+            <span class="chip">маленькая ваза</span>
+          </div>
+        </div>
+        <div class="make__pics">
+          <figure><img src="../assets/works/work-1.jpg" alt="Кружка в терракотовой глазури"><figcaption>кружка · глазурь «терра»</figcaption></figure>
+          <figure><img src="../assets/works/work-8.jpg" alt="Кружка в синей глазури"><figcaption>кружка · глазурь «индиго»</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">работы</span>
+          <h2>Что уносят<br><span>домой</span></h2>
+        </div>
+        <p>Фотографии работ и студии — из нашего архива. Ваши будут такими же,
+          только с вашей историей на дне.</p>
+      </div>
+      <div class="gallery">
+        <img src="../assets/works/work-2.jpg" alt="Чаша в зелёной глазури">
+        <img src="../assets/works/work-3.jpg" alt="Ваза в синей глазури">
+        <img src="../assets/works/work-6.jpg" alt="Пиала в песочной глазури">
+        <img src="../assets/works/work-5.jpg" alt="Терракотовая тарелка">
+      </div>
+    </div>
+  </section>
+
+  <section id="price" style="padding-top:0">
+    <div class="wrap">
+      <div class="price-card">
+        <div>
+          <span class="micro" style="color:var(--yellow)">стоимость</span>
+          <div class="big">По запросу</div>
+          <p>Цена за двоих и не зависит от дня недели: будни и выходные стоят
+            одинаково. Точную сумму скажем, когда напишете или позвоните.</p>
+          <ul>
+            <li>в стоимость входят материалы, глазурь, обжиг, вино и чай</li>
+            <li>фотограф — за отдельную плату</li>
+            <li>оплата в студии: наличными или переводом</li>
+            <li>перенос — не позже чем за сутки до вечера</li>
+          </ul>
+        </div>
+        <div class="price-card__side">
+          <button class="btn" type="button" data-book>Узнать цену и дату</button>
+          <a class="btn btn--ghost" href="https://wa.me/79872314164">Спросить в WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">хорошо знать</span>
+          <h2>Вопросы,<br><span>которые задают</span></h2>
+        </div>
+        <p>Если чего-то не хватает в списке — напишите в WhatsApp,
+          ответим в часы работы студии.</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Мы никогда не работали с глиной. Получится?</summary>
+          <p>Да. Мастер рядом всё время: показывает движение, поправляет руки и
+            помогает с формой. Большинство гостей садятся за круг впервые.</p>
+        </details>
+        <details>
+          <summary>Можно занять весь вечер только для нас двоих?</summary>
+          <p>Да, свидание — индивидуальный формат: в зале только вы, мастер и
+            два круга. Других гостей и параллельных мастер-классов в это время
+            в студии не будет.</p>
+        </details>
+        <details>
+          <summary>Когда можно забрать изделия?</summary>
+          <p>Через 2–3 недели: работа сохнет, затем проходит обжиг и глазуровку.
+            Напишем в WhatsApp, когда можно приехать за готовыми.</p>
+        </details>
+        <details>
+          <summary>Что надеть и что взять?</summary>
+          <p>Одежду, которую не жалко испачкать, и хорошее настроение.
+            Фартук, глина, инструменты и чай — наши. Длинные ногти и тяжёлые
+            украшения лучше снять дома.</p>
+        </details>
+        <details>
+          <summary>Можно принести еду и напитки?</summary>
+          <p>Да, можно приносить любые напитки и еду с собой — предупредите заранее,
+            чтобы мы освободили место на столе. Вино и бокалы уже входят в стоимость
+            вечера.</p>
+        </details>
+        <details>
+          <summary>Можно прийти втроём или отметить годовщину компанией?</summary>
+          <p>Свидание — формат для двоих. Для компании есть день рождения и
+            арт-вечеринка: там можно собрать до шести человек.</p>
+        </details>
+        <details>
+          <summary>Как оплатить и можно ли перенести?</summary>
+          <p>Оплата в студии после занятия: наличными или переводом. Перенести
+            или отменить вечер можно не позже чем за сутки — предупредите в
+            WhatsApp или по телефону.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="zapis" style="padding-top:0">
+    <div class="wrap booking">
+      <div class="booking__aside">
+        <span class="sec-label micro">запись</span>
+        <h2>Оставьте заявку —<br><span>подберём вечер</span></h2>
+        <p>Напишите имя, телефон и удобную дату: перезвоним, подтвердим время
+          и расскажем про стоимость.</p>
+        <div class="booking__contacts">
+          <div><span class="micro">телефон</span><br><a href="tel:+79872314164">+7 987 231‑41‑64</a></div>
+          <div><span class="micro">whatsapp</span><br><a href="https://wa.me/79872314164">написать в студию</a></div>
+          <div><span class="micro">адрес</span><br>Казань, ул. Маяковского, 20, офис 23, 2 этаж</div>
+          <div><span class="micro">часы</span><br>ср–вс, 16:00–20:00</div>
+        </div>
+      </div>
+
+      <form class="form-card card" id="bookingForm" novalidate>
+        <h3>Заявка на свидание</h3>
+        <p>Формат уже выбран — «Свидание за гончарным кругом». Поля со звёздочкой обязательны.</p>
+        <div class="field">
+          <label for="name">Имя *</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться" required>
+        </div>
+        <div class="field">
+          <label for="phone">Телефон *</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="field">
+          <label for="date">Удобная дата или день недели</label>
+          <input id="date" name="date" type="text" placeholder="Например: пятница вечером">
+        </div>
+        <label class="consent">
+          <input id="consent" name="consent" type="checkbox" required>
+          <span>Согласен на обработку персональных данных: имя и телефон нужны
+            только чтобы связаться по заявке.</span>
+        </label>
+        <button class="btn btn--terra form__submit" type="submit">Отправить заявку</button>
+        <p class="form__hint">Без оплаты на сайте. Стоимость и дату подтвердим при звонке.</p>
+        <div class="form__msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-label micro">другие форматы</span>
+          <h2>Если свидание<br><span>не про вас</span></h2>
+        </div>
+        <p>У студии восемь форматов: от детского дня рождения до корпоратива.
+          Посмотрите остальные на главной.</p>
+      </div>
+      <div class="others">
+        <a href="index.html" aria-current="page">Свидание за кругом</a>
+        <a href="../index.html#formats">День рождения</a>
+        <a href="../index.html#formats">Детский день рождения</a>
+        <a href="../index.html#formats">Корпоратив</a>
+        <a href="../index.html#formats">Арт-вечеринка</a>
+        <a href="../index.html#formats">Ручная лепка</a>
+        <a href="../index.html#formats">Гончарный круг</a>
+        <a href="../index.html#formats">Тематические МК</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        wow<em>.</em>ceramics
+        <p>Гончарная студия в центре Казани. Свидания, мастер-классы, праздники и керамика.</p>
+      </div>
+      <div><h5>адрес</h5><address>ул. Маяковского, 20<br>офис 23, 2 этаж<br>Казань</address></div>
+      <div><h5>запись</h5><address><a href="tel:+79872314164">+7 987 231‑41‑64</a><br><a href="https://wa.me/79872314164">WhatsApp</a><br>ср–вс, 16:00–20:00</address></div>
+      <div><h5>соцсети</h5><address><a href="https://instagram.com/wowceramics_kzn">Instagram</a><br><a href="https://vk.com/wowceramics_kzn">ВКонтакте</a><br><a href="https://yandex.ru/maps/org/vau_keramika/149394156119/">Яндекс Карты</a></address></div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 Wow Ceramics · Казань</span>
+      <span><a href="../index.html">Все форматы</a> · <a href="https://wa.me/79872314164">WhatsApp</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta"><button class="btn btn--terra" type="button" data-book>Записаться на свидание</button></div>
+
+<script>
+(function () {
+  var FORM_ENDPOINT = ''; // сюда адрес Formspree/Getform, если понадобится приём заявок на почту
+  var WHATSAPP = '79872314164';
+  var FORMAT = 'Свидание за гончарным кругом';
+
+  var form = document.getElementById('bookingForm');
+  var nameInput = document.getElementById('name');
+  var phoneInput = document.getElementById('phone');
+  var dateInput = document.getElementById('date');
+  var consent = document.getElementById('consent');
+  var msg = document.getElementById('formMsg');
+
+  phoneInput.addEventListener('input', function () {
+    var d = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+    if (!d) { phoneInput.value = ''; return; }
+    if (d[0] === '8') d = '7' + d.slice(1);
+    if (d[0] !== '7') d = '7' + d;
+    var out = '+7';
+    if (d.length > 1) out += ' (' + d.slice(1, 4);
+    if (d.length >= 5) out += ') ' + d.slice(4, 7);
+    if (d.length >= 8) out += '-' + d.slice(7, 9);
+    if (d.length >= 10) out += '-' + d.slice(9, 11);
+    phoneInput.value = out;
+  });
+
+  function setError(el, on) { var f = el.closest('.field'); if (f) f.classList.toggle('has-error', on); }
+  function show(kind, text) { msg.className = 'form__msg form__msg--' + kind + ' is-visible'; msg.textContent = text; }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'form__msg'; msg.textContent = '';
+    var nameOk = nameInput.value.trim().length >= 2;
+    var phoneOk = phoneInput.value.replace(/\D/g, '').length === 11;
+    setError(nameInput, !nameOk);
+    setError(phoneInput, !phoneOk);
+    if (!nameOk || !phoneOk) { show('err', 'Проверьте имя и телефон — нужен номер из 11 цифр.'); return; }
+    if (!consent.checked) { show('err', 'Поставьте галочку согласия на обработку данных.'); return; }
+
+    var data = {
+      name: nameInput.value.trim(),
+      phone: phoneInput.value.trim(),
+      date: dateInput.value.trim() || 'не уточнена',
+      format: FORMAT,
+      page: location.href
+    };
+
+    if (FORM_ENDPOINT) {
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true; btn.textContent = 'Отправляем…';
+      fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data) })
+        .then(function (r) { if (!r.ok) throw new Error('fail'); return r; })
+        .then(function () { form.reset(); show('ok', 'Заявка отправлена. Перезвоним в часы работы студии.'); })
+        .catch(function () { show('err', 'Не получилось отправить. Напишите в WhatsApp: +7 987 231-41-64.'); })
+        .finally(function () { btn.disabled = false; btn.textContent = 'Отправить заявку'; });
+      return;
+    }
+
+    var text = 'Заявка с сайта wowceramics\nФормат: ' + data.format + '\nИмя: ' + data.name +
+      '\nТелефон: ' + data.phone + '\nДата: ' + data.date;
+    window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
+    show('ok', 'Открыли WhatsApp с готовой заявкой — отправьте сообщение, и мы ответим. Или позвоните: +7 987 231-41-64.');
+  });
+
+  function goToForm() {
+    document.getElementById('zapis').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function () { nameInput.focus({ preventScroll: true }); }, 550);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-book]'), function (b) {
+    b.addEventListener('click', function (e) { e.preventDefault(); goToForm(); });
+  });
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
